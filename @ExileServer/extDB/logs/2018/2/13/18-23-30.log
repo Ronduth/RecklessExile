@@ -13,8 +13,8 @@ extDB2: Found extdb-conf.ini
 extDB2: Detected 12 Cores, Setting up 6 Worker Threads
 
 
-[02:04:05:824040 --5:00] [Thread 14516] extDB2: Database Type: MySQL
-[02:04:05:826098 --5:00] [Thread 14516] extDB2: Database Session Pool Started
-[02:04:05:827548 --5:00] [Thread 14516] extDB2: SQL_CUSTOM_V2: Loading Template Filename: C:\Servers\ExileServer\@exileserver\extDB\sql_custom_v2\exile.ini
-[02:04:05:827684 --5:00] [Thread 14516] extDB2: SQL_CUSTOM_V2: Version 12 Detected, Latest Version 12 Available
-[02:28:32:794315 --5:00] [Thread 14516] extDB2: Stopping ...
+[12:23:30:624614 --5:00] [Thread 8176] extDB2: Database Type: MySQL
+[12:23:30:626684 --5:00] [Thread 8176] extDB2: Database Session Pool Started
+[12:23:30:628139 --5:00] [Thread 8176] extDB2: SQL_CUSTOM_V2: Loading Template Filename: C:\Servers\ExileServer\@exileserver\extDB\sql_custom_v2\exile.ini
+[12:23:30:628274 --5:00] [Thread 8176] extDB2: SQL_CUSTOM_V2: Version 12 Detected, Latest Version 12 Available
+[12:40:01:491396 --5:00] [Thread 8176] extDB2: Stopping ...

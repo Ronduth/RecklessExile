@@ -22,7 +22,7 @@ class EditorData
 		aside[] = {-0.99819082,2.2482527e-007,0.060949549};
 	};
 };
-addons[] = {"exile_client","A3_Characters_F","A3_Ui_F","A3_Structures_F_Ind_FuelStation"};
+addons[] = {"exile_client","A3_Characters_F","A3_Ui_F","A3_Structures_F_Ind_FuelStation","Jbad_Rocks","cba_xeh","scar_arma3"};
 class AddonsMetaData
 {
 	class List
