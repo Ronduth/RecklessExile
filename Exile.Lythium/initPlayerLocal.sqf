@@ -2,7 +2,15 @@
  * Created with Exile Mod 3DEN Plugin
  * www.exilemod.com
  */
+ 
+[] execVM "custom\intro\intro.sqf";
+[] execVM "custom\intro\welcome.sqf";
+[] execVM "addons\paintshop\paintshop.sqf";		// Halv's Painthop ported by NRZ7.
+
 // [] execVM "custom\KillMessages.sqf";
+
+missionNamespace setVariable ["ExileClient_KillMessages_network_KillMessages",(compileFinal preprocessFileLineNumbers "ExileClient_KillMessages_network_KillMessages.sqf")];
+missionNamespace setVariable ["XG_killboardClient",(compileFinal preprocessFile "XG_killboardClient.sqf")];
 if (!hasInterface || isServer) exitWith {};
 
 // 51 NPCs

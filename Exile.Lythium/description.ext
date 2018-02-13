@@ -1,13 +1,10 @@
-#define true 1
-#define false 0
-
 ///////////////////////////////////////////////////////////////////////////////
 // Server Settings - Modify at will
 ///////////////////////////////////////////////////////////////////////////////
-author = "Exile Mod Team";
-onLoadName = "Exile Mod";
-onLoadMission= "www.exilemod.com";
-loadScreen = "exile_assets\texture\mod\logo.paa";
+author = "www.recklessnetwork.com";
+onLoadName = "RGN Exile PVP";
+onLoadMission = "Join our discord!";
+loadScreen = "Custom\images\serverlogo.paa"; 
 disableChannels[] = {0, 2};
 OnLoadIntro = "";
 OnLoadIntroTime = false;
@@ -20,6 +17,22 @@ class Header
     maxPlayers = 60;
 };
 
+#include "killboard.hpp"
+class CfgNetworkMessages
+{
+#include "MostWanted_Client\NetworkMessages.hpp"
+	class KillMessages
+	{
+		module = "KillMessages";
+		parameters[] = {"STRING","STRING","OBJECT","OBJECT"};
+	};
+};
+class RscTitles
+{
+	#include "KillMessages.hpp"
+	#include "ExAdClient\RscTitles.cpp"
+};
+
 ///////////////////////////////////////////////////////////////////////////////
 // Exile Settings - Do not change these!
 ///////////////////////////////////////////////////////////////////////////////
@@ -27,7 +40,7 @@ forceRotorLibSimulation = 2;
 skipLobby = 1;
 joinUnassigned = 1;
 respawn = "BASE";
-respawnDelay = 120;
+respawnDelay = 400;
 respawnDialog = 0;
 respawnOnStart = 0;
 respawnButton = 1;
@@ -49,10 +62,10 @@ allowFunctionsLog = 1;
 enableDebugConsole = 0;
 allowFunctionsRecompile = 0;
 showSquadRadar = 0;
-showUAVFeed = 0;
+showUAVFeed = 1;
 reviveDelay = 6;
-reviveForceRespawnDelay = 3;
-reviveBleedOutDelay = 120;
+reviveForceRespawnDelay = 400;
+reviveBleedOutDelay = 400;
 
 showHUD[] =
 {
@@ -64,7 +77,7 @@ showHUD[] =
     false,  // Commanding menu
     false,  // Group Bar
     true,   // HUD Weapon Cursors
-    false   // Squad Radar
+    true   // Squad Radar
 };
 
 #include "config.cpp"
@@ -94,12 +107,54 @@ class CfgFunctions
 {
 	#include "ExAdClient\CfgFunctions.cpp"
 };
-class RscTitles
+
+//Intro and Paycheck Ogg
+class CfgSounds
 {
-    #include "ExAdClient\RscTitles.cpp"
+	sounds[] = {Intro,safeTrap,drop,siren1,siren2,siren3};
+	class Intro
+	{
+		name = "Intro";
+		sound[] = {"\Custom\intro\introSong.ogg", 1, 1};
+		titles[] = {};
+	};
+	class safeTrap
+	{
+		name = "Xbrm_safeTrapped";
+		sound[] = {"addons\HEG_Xbrm_client\sFx\bomb.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class drop
+	{
+		name="drop";
+		sound[]={"@a3\data_f_curator\sound\cfgsounds\incoming2.wss",db+10,1};
+		titles[] = {};
+	};
+	class siren1
+	{
+		name="siren1";
+		sound[]={"\Sounds\siren1.ogg",db-35,1};
+		titles[] = {};
+	};
+	class siren2
+	{
+		name="siren2";
+		sound[]={"\Sounds\siren2.ogg",db-35,1};
+		titles[] = {};
+	};
+		class siren3
+	{
+		name="siren3";
+		sound[]={"\Sounds\siren3.ogg",db-35,1};
+		titles[] = {};
+	};
+	
 };
+
 #include "xs\spawn\Dialog\xsSpawnDefines.hpp"
 #include "xs\spawn\Dialog\xsSpawnDiaglog.hpp"
 #include "R3F_LOG\desc_include.h"
 #include "MostWanted_Client\Dialog\MostWantedDefines.hpp"
 #include "MostWanted_Client\Dialog\MostWantedDialog.hpp"
+#include "addons\paintshop\Halv_defines.hpp"
+#include "addons\paintshop\paintshop.hpp"

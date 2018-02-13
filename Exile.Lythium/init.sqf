@@ -9,7 +9,7 @@
 execVM "R3F_LOG\init.sqf";
 
 //Kill Messages
-[] execVM "custom\KillMessages.sqf";
+// [] execVM "custom\KillMessages.sqf";
 
 //Revive
 [] execVM "custom\EnigmaRevive\init.sqf";
@@ -19,3 +19,5 @@ execVM "R3F_LOG\init.sqf";
 if(hasInterface) then{
     [] execVM "Custom\rearm\service_point.sqf";
 };
+
+[] execVM "ClaimVehicles_Client\ClaimVehicles_Client_init.sqf";

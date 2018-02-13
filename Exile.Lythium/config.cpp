@@ -15,11 +15,6 @@
      #include "MostWanted_Client\Notifications.hpp"
  };
 
- class CfgNetworkMessages
- {
-     #include "MostWanted_Client\NetworkMessages.hpp"
- };
-
 class CfgClans
 {
 	/*
@@ -3375,7 +3370,7 @@ class CfgExileCustomCode
 	ExileServer_system_lootManager_initialize = "fixes\ExileServer_system_lootManager_initialize.sqf";
 	
 	//Kill Messages
-	ExileServer_object_player_event_onMpKilled = "overwrites\ExileServer_object_player_event_onMpKilled.sqf";
+	//ExileServer_object_player_event_onMpKilled = "overwrites\ExileServer_object_player_event_onMpKilled.sqf";
 
 	//Get Dynamic Vehicles To Only Spawn Within The Lythium Map Area
 	ExileServer_world_spawnVehicles = "fixes\ExileServer_world_spawnVehicles.sqf";
@@ -3771,6 +3766,13 @@ class CfgInteractionMenus
                 condition = "call ExileClient_object_vehicle_interaction_show";
                 action = "_this call ExileClient_object_vehicle_refuel";
             };
+			
+			class ClaimVehicle: ExileAbstractAction
+            {
+                title = "Claim Ownership";
+                condition = "true";
+                action = "call ExileClient_ClaimVehicles_network_claimRequestSend";
+            };
 
             // Drains fuel from a car into an empty jerry can
             class DrainFuel: ExileAbstractAction
@@ -3778,6 +3780,14 @@ class CfgInteractionMenus
                 title = "Drain Fuel";
                 condition = "call ExileClient_object_vehicle_interaction_show";
                 action = "_this call ExileClient_object_vehicle_drain";
+			};	
+				
+			// Save Paint
+			class ExileSavePaint: ExileAbstractAction
+			{
+				title = "Save Paint";
+				condition = "((locked ExileClientInteractionObject) isEqualTo 0) && ((locked ExileClientInteractionObject) != 1)  && ExilePlayerInSafezone";
+				action = "_this call NR_fnc_exileSavePaint";
 			};
 		};
 	};
@@ -3797,6 +3807,30 @@ class CfgInteractionMenus
             };
         };
     };
+	
+	class Tank 
+	{
+		targetType = 2;
+		target = "Tank";
+
+		class Actions 
+		{
+			// Save Paint
+			class ExileSavePaint: ExileAbstractAction
+			{
+				title = "Save Paint";
+				condition = "((locked ExileClientInteractionObject) isEqualTo 0) && ((locked ExileClientInteractionObject) != 1)  && ExilePlayerInSafezone";
+				action = "_this call NR_fnc_exileSavePaint";
+			};	
+				
+			class ClaimVehicle: ExileAbstractAction
+            {
+                title = "Claim Ownership";
+                condition = "true";
+                action = "call ExileClient_ClaimVehicles_network_claimRequestSend";
+			};
+		};
+	};
 
 	class Air
 	{
@@ -3868,6 +3902,13 @@ class CfgInteractionMenus
 				condition = "call ExileClient_object_vehicle_interaction_show";
 				action = "_this call ExileClient_object_vehicle_refuel";
 			};
+			
+			class ClaimVehicle: ExileAbstractAction
+            {
+                title = "Claim Ownership";
+                condition = "true";
+                action = "call ExileClient_ClaimVehicles_network_claimRequestSend";
+            };
 
 			// Drains fuel from a car into an empty jerry can
 			class DrainFuel: ExileAbstractAction
@@ -3889,6 +3930,15 @@ class CfgInteractionMenus
 				title = "Rotate Right";
 				condition = "call ExileClient_object_vehicle_interaction_show";
 				action = "[ExileClientInteractionObject,15] call ExileClient_object_vehicle_rotate";
+			};	
+			
+			// Save Paint
+			class ExileSavePaint: ExileAbstractAction
+			{
+				title = "Save Paint";
+				condition = "((locked ExileClientInteractionObject) isEqualTo 0) && ((locked ExileClientInteractionObject) != 1)  && ExilePlayerInSafezone"; 
+				//"((locked ExileClientInteractionObject) != 1) && ExilePlayerInSafezone"; // "true"
+				action = "_this call NR_fnc_exileSavePaint";
 			};
 		};
 	};
@@ -3944,15 +3994,21 @@ class CfgInteractionMenus
 		target = "Exile_Construction_Laptop_Static";
 
 		class Actions
-		{
-			class CameraSystem: ExileAbstractAction
-			{
-				title = "CCTV Access";
-				condition = "((ExileClientInteractionObject animationPhase 'LaptopLidRotation') >= 0.5)";
-				action = "_this call ExileClient_gui_baseCamera_show";
-			};
-		};
-	};
+	    {
+		    class CameraSystem: ExileAbstractAction
+		    {
+			    title = "CCTV Access";
+			    condition = "((ExileClientInteractionObject animationPhase 'LaptopLidRotation') >= 0.5)";
+			    action = "_this call ExileClient_gui_baseCamera_show";
+		    };
+		    class XG_ScoreBoard: ExileAbstractAction
+            {
+                title = "Open score board";
+                condition = "true";
+                action = "call XG_killboardClient";
+            };
+	    };
+    };
 
 	class SupplyBox
 	{
