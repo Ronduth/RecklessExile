@@ -2,7 +2,7 @@
  * Created with Exile Mod 3DEN Plugin
  * www.exilemod.com
  */
-[] execVM "custom\KillMessages.sqf";
+// [] execVM "custom\KillMessages.sqf";
 if (!hasInterface || isServer) exitWith {};
 
 // 51 NPCs

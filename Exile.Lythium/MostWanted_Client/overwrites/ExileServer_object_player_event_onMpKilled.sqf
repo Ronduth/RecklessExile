@@ -9,7 +9,10 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
 
-private["_victim","_killer","_countDeath","_countKill","_killSummary","_killingPlayer","_killType","_oldVictimRespect","_newVictimRespect","_oldKillerRespect","_newKillerRespect","_systemChat","_modifyVictimRespect","_respectLoss","_perks","_minRespectTransfer","_respectTransfer","_perkNames","_killerStatsNeedUpdate","_newKillerFrags","_victimStatsNeedUpdate","_newVictimDeaths","_victimPosition"];
+//private["_victim","_killer","_countDeath","_countKill","_killSummary","_killingPlayer","_killType","_oldVictimRespect","_newVictimRespect","_oldKillerRespect","_newKillerRespect","_systemChat","_modifyVictimRespect","_respectLoss","_perks","_minRespectTransfer","_respectTransfer","_perkNames","_killerStatsNeedUpdate","_newKillerFrags","_victimStatsNeedUpdate","_newVictimDeaths","_victimPosition"];
+private["_victim","_killer","_victimPosition","_addDeathStat","_addKillStat","_normalkill","_killerRespectPoints","_fragAttributes","_player","_grpvictim","_grpkiller","_log","_lastVictims","_victimUID",
+"_vehicleRole","_vehicle","_lastKillAt","_killStack","_distance","_distanceBonus","_flagNextToKiller","_homieBonus","_flagNextToVictim","_raidBonus","_overallRespectChange","_newKillerScore","_killMessage",
+"_newKillerFrags","_newVictimDeaths","_weapon","_txt","_pic"];
 _victim = _this select 0;
 _killer = _this select 1;
 if (!isServer || hasInterface || isNull _victim) exitWith {};
@@ -25,6 +28,21 @@ _killType = [_victim, _killer, _killingPlayer] call ExileServer_util_getFragType
 _oldVictimRespect = _victim getVariable ["ExileScore", 0];
 _newVictimRespect = _oldVictimRespect;
 _oldKillerRespect = 0;
+//added by ronduth line 32-41
+_killer setVariable ["ExileScore", _newKillerScore];
+_weapon = currentWeapon _killer;
+_txt = (gettext (configFile >> 'cfgWeapons' >> _weapon >> 'displayName'));
+_pic = (gettext (configFile >> 'cfgWeapons' >> _weapon >> 'picture'));
+if (_pic == "") then {
+	_weapon = typeOf (vehicle _killer);
+	_pic = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'picture'));
+	_txt = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
+};
+_killMessage = format ["%1 was killed by %2", (name _victim), (name _killer)];
+
+Gr8s_kill_msg = [(name _killer), _pic, (name _victim), floor(_victim distance _killer), _txt, nil, nil];
+if (LogPlayerKills) then {format["logGr8Kill:%1:%2:%3:%4:%5:%6:%7", (name _killer), getPlayerUID _killer, (name _victim), getPlayerUID _victim, _txt, floor(_victim distance _killer), _overallRespectChange] call ExileServer_system_database_query_insertSingle;};
+if (ShowPlayerKills) then {publicVariable "Gr8s_kill_msg";};
 if !(isNull _killingPlayer) then
 {
 	_oldKillerRespect = _killingPlayer getVariable ["ExileScore", 0];
@@ -198,7 +216,20 @@ if !(_systemChat isEqualTo "") then
 {
 	if ((getNumber (configFile >> "CfgSettings" >> "KillFeed" >> "showKillFeed")) isEqualTo 1) then
 	{
-		["systemChatRequest", [_systemChat]] call ExileServer_system_network_send_broadcast;
+		//["systemChatRequest", [_systemChat]] call ExileServer_system_network_send_broadcast;
+    _weapon = currentWeapon _killer;
+_txt = (gettext (configFile >> 'cfgWeapons' >> _weapon >> 'displayName'));
+_pic = (gettext (configFile >> 'cfgWeapons' >> _weapon >> 'picture'));
+if (_pic == "") then {
+   _weapon = typeOf (vehicle _killer);
+   _pic = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'picture'));
+   _txt = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
+};
+["systemChatRequest", [format["%1 was killed by an NPC! (%2m Distance)", (name _victim), floor(_victim distance _killer)]]] call ExileServer_object_player_event_killfeed;
+// KILL MESSAGES BY GR8
+Gr8s_kill_msg = ["NPC", _pic, (name _victim), floor(_victim distance _killer), _txt, nil, nil];
+if (LogAIKills) then {format["logGr8Kill:%1:%2:%3:%4:%5:%6:%7", "NPC", getPlayerUID _killer, (name _victim), getPlayerUID _victim, _txt, floor(_victim distance _killer), 0] call ExileServer_system_database_query_insertSingle;};
+if (ShowAIKills) then {publicVariable "Gr8s_kill_msg";};
 	};
 };
 if !(_systemChat isEqualTo "") then

@@ -3373,6 +3373,9 @@ class CfgExileCustomCode
 
 	//Loot Table Fix To Keep Compatibility Between 1.03b - 1.03e
 	ExileServer_system_lootManager_initialize = "fixes\ExileServer_system_lootManager_initialize.sqf";
+	
+	//Kill Messages
+	ExileServer_object_player_event_onMpKilled = "overwrites\ExileServer_object_player_event_onMpKilled.sqf";
 
 	//Get Dynamic Vehicles To Only Spawn Within The Lythium Map Area
 	ExileServer_world_spawnVehicles = "fixes\ExileServer_world_spawnVehicles.sqf";
@@ -3401,9 +3404,6 @@ class CfgExileCustomCode
     ExileServer_object_player_database_load = "MostWanted_Client\overwrites\ExileServer_object_player_database_load.sqf";
     //ExileServer_object_player_event_onMpKilled = "MostWanted_Client\overwrites\ExileServer_object_player_event_onMpKilled.sqf";
     ExileServer_system_network_event_onPlayerConnected = "MostWanted_Client\overwrites\ExileServer_system_network_event_onPlayerConnected.sqf";
-	
-	//Kill Messages
-	ExileServer_object_player_event_onMpKilled = "overwrites\ExileServer_object_player_event_onMpKilled.sqf";
 	
 	//Custom Loadout
 	ExileServer_object_player_network_createPlayerRequest = "custom\CustomLoadout\ExileServer_object_player_network_createPlayerRequest.sqf";
