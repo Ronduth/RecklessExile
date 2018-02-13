@@ -13,3 +13,9 @@ execVM "R3F_LOG\init.sqf";
 
 //Revive
 [] execVM "custom\EnigmaRevive\init.sqf";
+
+[] execVM "Custom\rearm\takegive_poptab_init.sqf";
+
+if(hasInterface) then{
+    [] execVM "Custom\rearm\service_point.sqf";
+};
