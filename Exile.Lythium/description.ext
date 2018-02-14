@@ -14,7 +14,7 @@ class Header
 {
     gameType = Survive; // Do NOT change this
     minPlayers = 1;
-    maxPlayers = 60;
+    maxPlayers = 100;
 };
 
 #include "killboard.hpp"
@@ -95,6 +95,10 @@ class CfgRemoteExec
         };
 		class AdminToolkit_network_receiveRequest { allowedTargets = 2; };
 		class ExAdServer_fnc_clientRequest { allowedTargets=2; };
+			
+		//CDAH CODE
+		class CDAH_fnc_CDAH_Workshop_Gui 							 { allowedTargets=0; };
+		class ExileClient_system_network_dispatchIncomingMessage 	 { allowedTargets=1; };
     };
 
     class Commands

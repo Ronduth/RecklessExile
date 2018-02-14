@@ -4,7 +4,7 @@
 		icon = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\itemmuzzle_ca.paa";
 		items[] =
 		{
-			"hlc_muzzle_snds_fal",
+			//"hlc_muzzle_snds_fal",
 			"hlc_muzzle_545SUP_AK",
 			"hlc_muzzle_762SUP_AK",
 			"hlc_muzzle_Agendasix",
@@ -12,7 +12,7 @@
 			"hlc_muzzle_Agendasix10mm",
 			"hlc_muzzle_300blk_KAC",
 			"hlc_muzzle_556NATO_KAC",
-			"hlc_muzzle_snds_AUG",
+			//"hlc_muzzle_snds_AUG",
 			"hlc_muzzle_snds_a6AUG",
 			"hlc_muzzle_snds_M14",
 			"hlc_muzzle_snds_g3",
@@ -426,7 +426,7 @@ class NIAMiniGun
 			"hlc_250Rnd_762x51_B_MG3",			
 			"hlc_250Rnd_762x51_M_MG3",			 
 			"hlc_250Rnd_762x51_Barrier_MG3",		 
-			"hlc_1250Rnd_762x51_T_MG3"	 
+			"hlc_250Rnd_762x51_T_MG3"	 
 
 		};
 	};

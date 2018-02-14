@@ -151,7 +151,7 @@ class ApexAmmunition
 		 "200Rnd_556x45_Box_Tracer_Red_F",
 		 "150Rnd_556x45_Drum_Mag_F",
 		 "150Rnd_556x45_Drum_Mag_Tracer_F",
-		 "20Rnd_650x38_Cased_Mag_F",
+		 //"20Rnd_650x38_Cased_Mag_F",
 		 "30Rnd_762x39_Mag_F",
 		 "30Rnd_762x39_Mag_Green_F",
 		 "30Rnd_762x39_Mag_Tracer_Green_F",

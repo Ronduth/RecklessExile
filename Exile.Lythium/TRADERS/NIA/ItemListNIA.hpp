@@ -1,11 +1,11 @@
 	///////////////////////////////////////////////////////////////////////////////
-	// NIArsenal  [NFG] Caboose-1 www.nofucksgivin.com
+	// NIArsenal  
 	///////////////////////////////////////////////////////////////////////////////
 
 	///////////////////////////////////////////////////////////////////////////////
 	// Muzzle Attachments
 	///////////////////////////////////////////////////////////////////////////////
-	class hlc_muzzle_snds_fal						{ quality = 2; price = 100; };
+	//class hlc_muzzle_snds_fal						{ quality = 2; price = 100; };
 	class hlc_muzzle_545SUP_AK						{ quality = 2; price = 100; };
 	class hlc_muzzle_762SUP_AK						{ quality = 2; price = 100; };
 	class hlc_muzzle_Agendasix						{ quality = 2; price = 100; };
@@ -13,7 +13,7 @@
 	class hlc_muzzle_Agendasix10mm					{ quality = 2; price = 100; };
 	class hlc_muzzle_300blk_KAC						{ quality = 2; price = 100; };
 	class hlc_muzzle_556NATO_KAC					{ quality = 2; price = 100; };
-	class hlc_muzzle_snds_AUG						{ quality = 2; price = 100; };
+	//class hlc_muzzle_snds_AUG						{ quality = 2; price = 100; };
 	class hlc_muzzle_snds_a6AUG						{ quality = 2; price = 100; };
 	class hlc_muzzle_snds_M14						{ quality = 2; price = 100; };
 	class hlc_muzzle_snds_g3						{ quality = 2; price = 100; };
@@ -153,7 +153,7 @@
 	class hlc_250Rnd_762x51_B_MG3					{ quality = 1; price = 250; };
 	class hlc_250Rnd_762x51_M_MG3			 		{ quality = 1; price = 250; };
 	class hlc_250Rnd_762x51_Barrier_MG3				{ quality = 1; price = 220; };
-	class hlc_1250Rnd_762x51_T_MG3					{ quality = 1; price = 100; };
+	class hlc_250Rnd_762x51_T_MG3					{ quality = 1; price = 100; };
 	class hlc_30rnd_68x43_FMJ						{ quality = 1; price = 40; };
 	class hlc_30rnd_68x43_OTM						{ quality = 1; price = 40; };
 	class hlc_30rnd_68x43_Tracer					{ quality = 1; price = 40; };

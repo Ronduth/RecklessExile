@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////
-//APEX List [NFG] Caboose-1 www.nofucksgivin.com
+//APEX List 
 ///////////////////////////////////////////////////////////
 //Vehicles
 
@@ -214,7 +214,7 @@ class 200Rnd_556x45_Box_Tracer_F                { quality = 1; price = 50;  };
 class 200Rnd_556x45_Box_Tracer_Red_F            { quality = 1; price = 50;  };
 class 150Rnd_556x45_Drum_Mag_F                  { quality = 1; price = 40;  };
 class 150Rnd_556x45_Drum_Mag_Tracer_F           { quality = 1; price = 40;  };
-class 20Rnd_650x38_Cased_Mag_F                	{ quality = 1; price = 20;  };
+//class 20Rnd_650x38_Cased_Mag_F                	{ quality = 1; price = 20;  };
 class 30Rnd_762x39_Mag_F                        { quality = 1; price = 20;  };
 class 30Rnd_762x39_Mag_Green_F                  { quality = 1; price = 20;  };
 class 30Rnd_762x39_Mag_Tracer_Green_F           { quality = 1; price = 20;  };

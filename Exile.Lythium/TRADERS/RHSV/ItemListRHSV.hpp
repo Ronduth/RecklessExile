@@ -1,5 +1,5 @@
 	///////////////////////////////////////////////////////////////////////////////
-	//RGS VEHICLES  [NFG] Caboose-1 www.nofucksgivin.com
+	//RGS VEHICLES  
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
 	// GAZ-233011
@@ -35,7 +35,7 @@
 	//class rhs_gaz66_repair_vdv						{ quality = 1; price = 20000; };
 	//class rhs_gaz66_repair_vv						{ quality = 1; price = 20000; };
 	//class rhs_gaz66_repair_msv						{ quality = 1; price = 20000; };
-	class rhs_gaz66_ammo_vmf 						{ quality = 1; price = 30000; };
+	//class rhs_gaz66_ammo_vmf 						{ quality = 1; price = 30000; };
 	class rhs_gaz66_flat_vdv 						{ quality = 1; price = 18250; };
 	//class rhs_gaz66_flat_vmf						{ quality = 1; price = 18250; };
 	//class rhs_gaz66_flat_vv							{ quality = 1; price = 18250; };
@@ -133,7 +133,7 @@
 	//class rhs_btr60_vdv 							{ quality = 2; price = 125000; };
 	//class rhs_btr60_vv 								{ quality = 1; price = 125000; };
 	//class rhs_btr60_msv 							{ quality = 1; price = 125000; };
-	class RHS_BTR70 								{ quality = 1; price = 65000; };
+	//class RHS_BTR70 								{ quality = 1; price = 65000; };
 	//class RHS_BTR70_MSV 							{ quality = 1; price = 125000; };
 	//class RHS_BTR70_VDV 							{ quality = 1; price = 175000; };
 	//class RHS_BTR70_VMF 							{ quality = 1; price = 125000; };

@@ -21,3 +21,6 @@ if(hasInterface) then{
 };
 
 [] execVM "ClaimVehicles_Client\ClaimVehicles_Client_init.sqf";
+
+//Cars
+[] execVM "CDAH_crafting\logic\config.sqf";
