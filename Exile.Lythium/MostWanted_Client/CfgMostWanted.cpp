@@ -14,7 +14,7 @@ class CfgMostWanted
                 The sooner the array gets reset, the more often players are able to claim bounties or place bounties on their friends
             */
 
-            friendsLifetime = 14;
+            friendsLifetime = 2;
         };
 
         class Immunity

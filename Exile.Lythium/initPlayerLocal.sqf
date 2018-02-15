@@ -9,6 +9,17 @@
 
 // [] execVM "custom\KillMessages.sqf";
 
+/*_pic = "wm.paa";
+[
+    '<img align=''left'' size=''1.0'' shadow=''1'' image='+(str(_pic))+' />',
+    safeZoneX+0.05,
+    safeZoneY+safeZoneH-0.2,
+    99999,
+    0,
+    0,
+    3090
+] spawn bis_fnc_dynamicText;  */
+
 missionNamespace setVariable ["ExileClient_KillMessages_network_KillMessages",(compileFinal preprocessFileLineNumbers "ExileClient_KillMessages_network_KillMessages.sqf")];
 missionNamespace setVariable ["XG_killboardClient",(compileFinal preprocessFile "XG_killboardClient.sqf")];
 if (!hasInterface || isServer) exitWith {};

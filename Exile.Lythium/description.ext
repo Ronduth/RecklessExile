@@ -4,7 +4,7 @@
 author = "www.recklessnetwork.com";
 onLoadName = "RGN Exile PVP";
 onLoadMission = "Join our discord!";
-loadScreen = "Custom\images\serverlogo.paa"; 
+loadScreen = "serverlogo.paa"; 
 disableChannels[] = {0, 2};
 OnLoadIntro = "";
 OnLoadIntroTime = false;
@@ -82,31 +82,12 @@ showHUD[] =
 
 #include "config.cpp"
 
-class CfgRemoteExec
-{
-    class Functions
-    {
-        mode = 1;
-        jip = 0;
+#include "CfgRemoteExec.hpp"
+#include "infiSTAR_defines.hpp"
+#include "infiSTAR_AdminMenu.hpp"
+#include "infiSTAR_chat.hpp"
+#include "infiSTAR_KeyBinds.hpp"
 
-        class ExileServer_system_network_dispatchIncomingMessage
-        {
-            allowedTargets = 2;
-        };
-		class AdminToolkit_network_receiveRequest { allowedTargets = 2; };
-		class ExAdServer_fnc_clientRequest { allowedTargets=2; };
-			
-		//CDAH CODE
-		class CDAH_fnc_CDAH_Workshop_Gui 							 { allowedTargets=0; };
-		class ExileClient_system_network_dispatchIncomingMessage 	 { allowedTargets=1; };
-    };
-
-    class Commands
-    {
-        mode = 0;
-        jip = 0;
-    };
-};
 class CfgFunctions
 {
 	#include "ExAdClient\CfgFunctions.cpp"

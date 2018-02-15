@@ -29,8 +29,7 @@ ExAd_SB_ICON_TEMP = 	"ExAdClient\StatsBar\Icons\ExAd_Temp.paa";		//STRING - Path
 ExAd_SB_ICON_THIRST = 	"ExAdClient\StatsBar\Icons\ExAd_Thirst.paa";	//STRING - Path to thirst icon
 ExAd_SB_ICON_TIMER = 	"ExAdClient\StatsBar\Icons\ExAd_Restart.paa";	//STRING - Path to restart icon
 ExAd_SB_ICON_Wallet = 	"ExAdClient\StatsBar\Icons\ExAd_Wallet.paa";	//STRING - Path to POP TABS icon
-ExAd_SB_ICON_LOGO = 	"ExAdClient\Core\Img\ExAd_logo_128.paa";		//STRING - Path to logo
-
+ExAd_SB_ICON_LOGO =     "ExAdClient\Core\Img\logo.paa";                 //STRING - Path to logo
 ExAd_SB_COMPONENTS_COLORS = ["#ff0000", "#ff8800","#ffaa00","#f2ff00","#A9C700","#11BF03"]; //STRINGS - Array of color codes, from bad to good. 
 
 ExAd_SB_Timer = 3; 										//SCALAR - Restart time measured in hours. 

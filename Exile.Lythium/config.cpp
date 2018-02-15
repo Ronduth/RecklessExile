@@ -1651,6 +1651,7 @@ class CfgExileArsenal
 	#include "TRADERS\Fox\ItemListFox.hpp"
 	#include "TRADERS\TRYK\ItemListTRYK.hpp"
 	#include "TRADERS\VSM\ItemListVSM.hpp"
+	#include "TRADERS\CDAH\ItemListCDAH.hpp"
 	#include "EBM\prices.hpp"
 	
 };
@@ -1832,6 +1833,9 @@ class CfgExileCustomCode
 				
 	// CDAH Rearm Vehicles (for Vehicle rearming)
 	ExileClient_action_execute =                            "CDAH_crafting\logic\CDAH_ExileClient_action_execute.sqf";
+	
+	//Ehanced Movement
+	ExileClient_system_thread_initialize = "Overrides\ExileClient_system_thread_initialize.sqf";
 };
 
 class CfgExileEnvironment
@@ -2121,9 +2125,9 @@ class ExileAbstractAction
  */
 class CfgInteractionMenus
 {
-#include "EBM\menus.hpp"
+    #include "EBM\menus.hpp"
 	// CDAH CRAFTING InteractionMenus
-#include "CDAH_crafting\logic\CDAH_Class_tank.hpp"
+    #include "CDAH_crafting\logic\CDAH_Class_tank.hpp"
 	class Car
     {
         targetType = 2;
@@ -2389,6 +2393,27 @@ class CfgInteractionMenus
 				condition = "((ExileClientInteractionObject getvariable ['ExileIsLocked',1]) isEqualTo 0)";
 				action = "_this spawn ExileClient_object_lock_setPin";
 			};
+			
+			class RaidSafe : ExileAbstractAction
+			{
+				title = "Attempt Lockpicking";
+				condition = "((ExileClientInteractionObject getvariable ['ExileIsLocked',1]) isEqualTo -1)";
+				action = "[ExileClientInteractionObject,'safe'] execVM 'addons\HEG_Xbrm_client\functions\Xbrm_lockpick_init.sqf'";
+			};
+			
+			class TrapSafe : ExileAbstractAction
+			{
+				title = "Rig With Explosives";
+				condition = "((ExileClientInteractionObject getvariable ['ExileIsLocked',1]) isEqualTo 0)";
+				action = "ExileClientInteractionObject execVM 'addons\HEG_Xbrm_client\functions\addTrap.sqf'";
+			};
+			
+			class ScanSafe : ExileAbstractAction
+			{
+				title = "Scan For Explosives";
+				condition = "((ExileClientInteractionObject getvariable ['ExileIsLocked',1]) isEqualTo -1)";
+				action = "ExileClientInteractionObject execVM 'addons\HEG_Xbrm_client\functions\scanTrap.sqf'";
+			};
 		};
 	};
 
@@ -2538,7 +2563,27 @@ class CfgInteractionMenus
 				condition = "(!((ExileClientInteractionObject getVariable ['ExileConstructionDamage',0]) isEqualTo 0)) && (call ExileClient_util_world_isInOwnTerritory)";
 				action = "_this call ExileClient_object_construction_repair";
 			};
-
+			
+			class Grind : ExileAbstractAction
+		    {
+			    title = "Grind Lock";
+			    condition = "call ExAd_fnc_canGrindLock";
+			    action = "_this spawn ExAd_fnc_grindLock";
+		    };
+		
+		    class RestoreLock : ExileAbstractAction
+		    {
+			    title = "Restore Lock";
+			    condition = "_object call ExAd_fnc_canRestoreLock";
+			    action = "_this spawn ExAd_fnc_restoreLock";
+		    };
+			
+			class RaidDoor : ExileAbstractAction
+			{
+				title = "Attempt Break In";
+				condition = "((ExileClientInteractionObject getvariable ['ExileIsLocked',1]) isEqualTo -1)";
+				action = "[ExileClientInteractionObject,'door'] execVM 'addons\HEG_Xbrm_client\functions\Xbrm_lockpick_init.sqf'";
+			};
 		};
 	};
 
@@ -2596,6 +2641,12 @@ class CfgInteractionMenus
 				condition = "((ExileClientInteractionObject getvariable ['ExileFlagStolen',0]) isEqualTo 1)";
 				action = "['restoreFlagRequest', [netID ExileClientInteractionObject]] call ExileClient_system_network_send";
 			};
+			class HackVG : ExileAbstractAction
+		    {
+			    title = "Hack Virtual Garage";
+			    condition = "call ExAd_fnc_canHackVG";
+			    action = "_this spawn ExAd_fnc_startHack";
+		    };
 		};
 	};
 
@@ -3064,6 +3115,7 @@ class CfgTraderCategories
 	#include "TRADERS\Fox\TraderCategoriesFox.hpp"
 	#include "TRADERS\TRYK\TraderCategoriesTRYK.hpp"
 	#include "TRADERS\VSM\TraderCategoriesVSM.hpp"
+	#include "TRADERS\CDAH\TraderCategoriesCDAH.hpp"
 	#include "EBM\traders.hpp"
 };
 class CfgTraders
@@ -3209,7 +3261,8 @@ class CfgTraders
 			"ApexTools",
 			"Tools",
 			"Building",
-			"ExtendedBaseMod"
+			"ExtendedBaseMod",
+			"CDAHItems"
 			
 		};
 	};

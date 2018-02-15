@@ -24,3 +24,6 @@ if(hasInterface) then{
 
 //Cars
 [] execVM "CDAH_crafting\logic\config.sqf";
+
+//XBRM
+[] execVM "addons\HEG_Xbrm_client\Xbrm_config.sqf";

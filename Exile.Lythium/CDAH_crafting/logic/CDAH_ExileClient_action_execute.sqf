@@ -9,7 +9,7 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
  
-private["_actionName","_parameters","_progress","_actionConfig","_duration","_durationFunction","_failChance","_animation","_animationType","_conditionFunction","_abortInCombatMode","_startTime","_sleepDuration","_failAt","_errorMessage","_keyDownHandle","_mouseButtonDownHandle","_display","_label","_progressBarBackground","_progressBarMaxSize","_progressBar","_function","_progressBarColor"];
+private["_actionName", "_parameters", "_progress", "_actionConfig", "_duration", "_durationFunction", "_failChance", "_animation", "_animationType", "_conditionFunction", "_abortInCombatMode", "_startTime", "_sleepDuration", "_failAt", "_errorMessage", "_keyDownHandle", "_mouseButtonDownHandle", "_display", "_label", "_progressBarBackground", "_progressBarMaxSize", "_progressBar", "_function", "_progressBarColor"];
 disableSerialization;
 if (ExileClientActionDelayShown) exitWith { false };
 ExileClientActionDelayShown = true;
@@ -17,7 +17,7 @@ ExileClientActionDelayAbort = false;
 _actionName = _this select 0;
 _parameters = _this select 1;
 _progress = 0;
-_actionConfig = missionconfigFile >> "CfgExileDelayedActions" >> _actionName;
+_actionConfig = configFile >> "CfgExileDelayedActions" >> _actionName;
 _duration = getNumber (_actionConfig >> "duration");
 _durationFunction = getText (_actionConfig >> "durationFunction");
 _failChance = getNumber (_actionConfig >> "failChance");

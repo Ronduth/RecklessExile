@@ -23,7 +23,7 @@ _posDefault         = [0.3,0.55,0.5]; // Defualt Positions of all Credits
 
 // First
 _title          = format ["Welcome %1 to RGN Exile PVP",name player];
-_shorttext      = "A customized experience for every player";
+_shorttext      = "Grab your shield, it's goona get reckless.";
 _posText        = [0.8,0.5,0.4];
 
 
@@ -33,12 +33,12 @@ _posText2       = [0.8,0.5,0.25];
 
 
 _title3         = "Adminsupport only on Discord and forums";
-_shorttext3     = "Discord.gg/RGN & www.recklessnetwork.com";
+_shorttext3     = "Discord.gg/RGN";
 _posText3       = [0.8,0.5,0.25];
 
 
 _title4         = "Admins:";
-_shorttext4     = "Temp Fill";
+_shorttext4     = "[RGN]Ronduth,[RGN]Setha,[RGN]Agony";
 _posText4       = [0.8,0.5,0.28];
 
 
